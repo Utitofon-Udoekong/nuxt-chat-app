@@ -18,10 +18,6 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-## Tutorial
 
-> https://medium.com/@stfalconcom/chat-app-creation-using-vue-js-nuxt-js-node-js-socket-io-vue-socket-io-vuetify-js-technologies-5f15f0781476
 
-## Demo
 
-> https://nuxt-chat-app.herokuapp.com/
