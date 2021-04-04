@@ -24,6 +24,9 @@ export const mutations = {
     state.messages = [];
     state.users = [];
   },
+  clearMessages(state) {
+    state.messages = [];
+  },
   setTypingStatus(state, status) {
     state.user.typingStatus = status;
   },
@@ -44,6 +47,14 @@ export const actions = {
       action: "createMessage",
       payload,
     });
+  },
+  deleteMessage({ commit, dispatch}) {
+    dispatch("socketEmit", {
+      action: "deleteMessage",
+      payload: null
+    });
+
+    commit("clearMessages")
   },
   joinRoom({ dispatch, state }) {
     const { user } = state;

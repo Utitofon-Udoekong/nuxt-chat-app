@@ -1,27 +1,34 @@
 <template>
   <div class="chat-wrapper">
-    <div
-      ref="chat"
-      class="chat"
-    >
+    <div ref="chat" class="chat">
       <Message
         v-for="(message, index) in messages"
         :key="`message-${index}`"
         :message="message"
         :owner="message.id === user.id"
+        @log="handledata"
       />
     </div>
-    <div
-      v-if="typingUsers.length"
-      class="chat__typing"
-    >
+      <v-menu v-model="showMenu"  bottom
+      origin="center center"
+      transition="scale-transition">
+        <v-list>
+          <v-list-item >
+            <v-list-item-icon>
+              <v-icon>
+                mdi-delete
+              </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Delete Message</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    <div v-if="typingUsers.length" class="chat__typing">
       <p
         v-for="(typingUser, index) in typingUsers"
         :key="`typingUser-${index}`"
         class="chat__typing-user"
-      >
-        {{ typingUser.name }} is typing...
-      </p>
+      >{{ typingUser.name }} is typing...</p>
     </div>
     <div class="chat__form">
       <ChatForm />
@@ -36,6 +43,11 @@ import ChatForm from "@/components/ChatForm";
 
 export default {
   name: "ChatPage",
+  data(){
+    return {
+      showMenu: false,
+    }
+  },
   layout: "chat",
   components: {
     Message,
@@ -59,6 +71,15 @@ export default {
       title: `Room ${this.user.room}`,
     };
   },
+  methods: {
+    handledata(e){
+      console.log(e)
+      this.showMenu = false
+        this.$nextTick(() => {
+          this.showMenu = true
+        })
+    }
+  }
 };
 </script>
 

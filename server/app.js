@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
     usersDB.setTypingStatus(id, typingStatus);
     io.to(room).emit("updateUsers", usersDB.getUsersByRoom(room));
   });
-
+  
   const exitEvents = ["leftChat", "disconnect"];
 
   exitEvents.forEach((event) => {

@@ -18,6 +18,7 @@
         justify="space-between"
         class="msg"
         :class="{ owner }"
+        @contextmenu.prevent="$emit('log', message.time)"
       >
         <!-- <v-col>
           <v-avatar size="12px">
