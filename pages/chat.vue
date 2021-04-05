@@ -8,7 +8,6 @@
         :owner="message.id === user.id"
         @log="handledata"
       />
-    </div>
       <v-menu v-model="showMenu"  bottom
       origin="center center"
       transition="scale-transition">
@@ -23,6 +22,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
+    </div>
     <div v-if="typingUsers.length" class="chat__typing">
       <p
         v-for="(typingUser, index) in typingUsers"
@@ -92,7 +92,7 @@ export default {
 
 .chat__form {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   right: 0;
   padding: 1rem;

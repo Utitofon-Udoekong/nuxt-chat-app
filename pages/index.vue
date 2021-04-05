@@ -5,7 +5,7 @@
         <Snackbar v-model="snackbar" :text="message" />
 
         <v-card-title>
-          <h2>Login</h2>
+          <h2>Join a chat</h2>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="isValid" lazy-validation @submit.prevent="submit">
@@ -15,6 +15,8 @@
               :rules="nameRules"
               label="Name"
               required
+              outlined
+              color="#ec6414"
             />
             <v-text-field
               v-model="user.room"
@@ -22,8 +24,10 @@
               :rules="roomRules"
               label="Enter the room"
               required
+              outlined
+              color="#ec6414"
             />
-            <v-btn :disabled="!isValid" color="primary" class="mt-3" type="submit">Submit</v-btn>
+            <v-btn :disabled="!isValid" color="#ec6414" class="mt-3" type="submit">Submit</v-btn>
           </v-form>
         </v-card-text>
       </v-card>

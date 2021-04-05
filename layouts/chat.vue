@@ -1,6 +1,6 @@
 <template>
   <v-app :style="{background: $vuetify.theme.themes.dark.background}">
-    <v-navigation-drawer v-model="drawer" app mobile-break-point="650">
+    <v-navigation-drawer v-model="drawer" app mobile-break-point="650" color="#000">
       <v-list subheader>
         <v-subheader>Users in room</v-subheader>
 
